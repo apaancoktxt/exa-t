@@ -9,22 +9,18 @@ def post(p, body):
         try: return getattr(e,"code",0), e.read().decode()[:300]
         except: return getattr(e,"code",0), str(e)[:200]
 
-# 1. ambil halaman bug bounty langsung
-s,b = post("/contents", {"urls":["https://docs.ticko.xyz/resources/ticko-bug-bounty"],"text":{"maxCharacters":15000}})
-print("=== CONTENTS status:", s)
-if s==200:
-    d=json.loads(b)
-    for r in d.get("results",[]):
-        print(r.get("title"))
-        print((r.get("text") or "")[:4000])
-else:
-    print(b[:300])
-
-# 2. deep search konteks Ticko
-s2,b2 = post("/search", {"query":"Ticko xyz bug bounty scope program","type":"deep","numResults":6,"contents":{"text":{"maxCharacters":2500}}})
-print("\n=== DEEP SEARCH status:", s2)
-if s2==200:
-    d=json.loads(b2)
-    for r in d.get("results",[]):
-        print("-",r.get("title"),"|",r.get("url"))
-        print("  ",(r.get("text") or "")[:400].replace("\n"," "))
+qs = [
+ "Ticko xyz bug bounty program scope rewards severity",
+ "Ticko bug bounty hackerone immunefi ticko.xyz",
+ "site:docs.ticko.xyz bug bounty",
+]
+for q in qs:
+    s,b = post("/search", {"query":q,"type":"neural","numResults":8,
+                           "contents":{"text":{"maxCharacters":3000}}})
+    print(f"\n### Q: {q}  [{s}]")
+    if s==200:
+        d=json.loads(b)
+        for r in d.get("results",[]):
+            print("-", r.get("title"), "|", r.get("url"))
+            t=(r.get("text") or "").replace("\n"," ")[:600]
+            if t: print("  ", t)

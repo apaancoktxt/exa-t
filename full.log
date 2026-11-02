@@ -1,0 +1,149 @@
+:19.6828362Z Current runner version: '2.338.2'
+19.6846865Z ##[group]Runner Image Provisioner
+19.6847429Z Hosted Compute Agent
+19.6847852Z Version: 20261021.618
+19.6848297Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+19.6848756Z Build Date: 2026-10-21T00:45:21Z
+19.6849179Z Worker ID: {55f462ad-8a1b-4dec-bc96-11e973f86504}
+19.6849606Z Region: southcentralus
+19.6849994Z Cloud: Azure
+19.6850361Z ##[endgroup]
+19.6851351Z ##[group]Operating System
+19.6851732Z Ubuntu
+19.6852253Z 26.04.1
+19.6852614Z LTS
+19.6852961Z ##[endgroup]
+19.6853288Z ##[group]Runner Image
+19.6853727Z Image: ubuntu-26.04
+19.6854080Z Version: 20261025.179.1
+19.6854753Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261025.179/images/ubuntu/Ubuntu2604-Readme.md
+19.6855829Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261025.179
+19.6856411Z ##[endgroup]
+19.6857381Z ##[group]GITHUB_TOKEN Permissions
+19.6858767Z Contents: read
+19.6859126Z Metadata: read
+19.6859522Z Packages: read
+19.6859891Z ##[endgroup]
+19.6861235Z Secret source: Actions
+19.6861807Z Cache mode: write
+19.6862521Z Prepare workflow directory
+19.7064361Z Prepare all required actions
+19.7095540Z Getting action download info
+19.9513417Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+20.3649785Z Complete job name: r
+6-11-02T23:00:20.4229336Z ##[group]Run actions/checkout@v4
+-11-02T23:00:20.4229818Z with:
+-11-02T23:00:20.4230102Z   repository: apaancoktxt/exa-t
+-11-02T23:00:20.4232357Z   token: ***
+-11-02T23:00:20.4232620Z   ssh-strict: true
+-11-02T23:00:20.4232882Z   ssh-user: git
+-11-02T23:00:20.4233154Z   persist-credentials: true
+-11-02T23:00:20.4233442Z   clean: true
+-11-02T23:00:20.4233718Z   sparse-checkout-cone-mode: true
+-11-02T23:00:20.4234027Z   fetch-depth: 1
+-11-02T23:00:20.4234291Z   fetch-tags: false
+-11-02T23:00:20.4234560Z   show-progress: true
+-11-02T23:00:20.4234830Z   lfs: false
+-11-02T23:00:20.4235090Z   submodules: false
+-11-02T23:00:20.4235375Z   set-safe-directory: true
+-11-02T23:00:20.4235687Z   allow-unsafe-pr-checkout: false
+-11-02T23:00:20.4236076Z ##[endgroup]
+-11-02T23:00:22.7989848Z Syncing repository: apaancoktxt/exa-t
+-11-02T23:00:22.7991542Z ##[group]Getting Git version info
+-11-02T23:00:22.7992533Z Working directory is '/home/runner/work/exa-t/exa-t'
+-11-02T23:00:22.7993809Z [command]/usr/bin/git version
+-11-02T23:00:22.8110811Z git version 2.56.0
+-11-02T23:00:22.8122650Z ##[endgroup]
+-11-02T23:00:22.8131517Z Temporarily overriding HOME='/home/runner/work/_temp/41f899ef-94e8-46ab-8970-dd061ce33f89' before making global git config changes
+-11-02T23:00:22.8134016Z Adding repository directory to the temporary git global config as a safe directory
+-11-02T23:00:22.8135534Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/exa-t/exa-t
+-11-02T23:00:22.8463686Z Deleting the contents of '/home/runner/work/exa-t/exa-t'
+-11-02T23:00:22.8471846Z ##[group]Initializing the repository
+-11-02T23:00:22.8482855Z [command]/usr/bin/git init /home/runner/work/exa-t/exa-t
+-11-02T23:00:22.8867292Z hint: Using 'master' as the name for the initial branch. This default branch name
+-11-02T23:00:22.8868950Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+-11-02T23:00:22.8870466Z hint: to use in all of your new repositories, which will suppress this warning,
+-11-02T23:00:22.8872252Z hint: call:
+-11-02T23:00:22.8872947Z hint:
+-11-02T23:00:22.8873791Z hint: 	git config --global init.defaultBranch <name>
+-11-02T23:00:22.8874759Z hint:
+-11-02T23:00:22.8875700Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+-11-02T23:00:22.8877122Z hint: 'development'. The just-created branch can be renamed via this command:
+-11-02T23:00:22.8878344Z hint:
+-11-02T23:00:22.8879063Z hint: 	git branch -m <name>
+-11-02T23:00:22.8879871Z hint:
+-11-02T23:00:22.8880950Z hint: Disable this message with "git config set advice.defaultBranchName false"
+-11-02T23:00:22.9007288Z Initialized empty Git repository in /home/runner/work/exa-t/exa-t/.git/
+-11-02T23:00:22.9017225Z [command]/usr/bin/git remote add origin https://github.com/apaancoktxt/exa-t
+-11-02T23:00:22.9222936Z ##[endgroup]
+-11-02T23:00:22.9224606Z ##[group]Disabling automatic garbage collection
+-11-02T23:00:22.9226155Z [command]/usr/bin/git config --local gc.auto 0
+-11-02T23:00:22.9253209Z ##[endgroup]
+-11-02T23:00:22.9254689Z ##[group]Setting up auth
+-11-02T23:00:22.9257771Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+-11-02T23:00:22.9283574Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+-11-02T23:00:23.1292796Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+-11-02T23:00:23.1319833Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+-11-02T23:00:23.1527974Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+-11-02T23:00:23.1553632Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+-11-02T23:00:23.1757723Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+-11-02T23:00:23.1788584Z ##[endgroup]
+-11-02T23:00:23.1789006Z ##[group]Fetching the repository
+-11-02T23:00:23.1794438Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +803970f979f4d0913db82237a0aa314263f1f478:refs/remotes/origin/main
+-11-02T23:00:23.6301333Z From https://github.com/apaancoktxt/exa-t
+-11-02T23:00:23.6302191Z  * [new ref]         803970f979f4d0913db82237a0aa314263f1f478 -> origin/main
+-11-02T23:00:23.6304214Z ##[endgroup]
+-11-02T23:00:23.6304684Z ##[group]Determining the checkout info
+-11-02T23:00:23.6306205Z ##[endgroup]
+-11-02T23:00:23.6310667Z [command]/usr/bin/git sparse-checkout disable
+-11-02T23:00:23.6476541Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+-11-02T23:00:23.6481083Z ##[group]Checking out the ref
+-11-02T23:00:23.6485082Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+-11-02T23:00:23.6641755Z Switched to a new branch 'main'
+-11-02T23:00:23.6694255Z branch 'main' set up to track 'origin/main'.
+-11-02T23:00:23.6699550Z ##[endgroup]
+-11-02T23:00:23.6731661Z [command]/usr/bin/git log -1 --format=%H
+-11-02T23:00:23.6750547Z 803970f979f4d0913db82237a0aa314263f1f478
+971877Z ##[group]Run python3 probe.py
+72295Z ^[[36;1mpython3 probe.py^[[0m
+99284Z shell: /usr/bin/bash -e {0}
+99464Z env:
+99777Z   EXAK: ***
+99889Z ##[endgroup]
+50956Z === CONTENTS status: 200
+51652Z Service unavailable in your region — Ticko
+52289Z Service unavailable in your region — Ticko
+52464Z 
+52567Z # Service unavailable in your region
+53288Z 
+53911Z We noticed that your IP address is from one of Ticko's restricted countries or regions. Unfortunately, Ticko is not able to provide service to users in these regions under our Terms and Conditions.
+54514Z 
+54667Z === DEEP SEARCH status: 200
+55078Z - Ticko | https://xitter.cf/tickoxyz
+56486Z    Ticko (@tickoxyz) | teapawt teapawt  # Ticko  @tickoxyz  Democratize every market. Onchain trading built for real users. Simple on the surface, verifiable underneath.  linktr.ee/tickoxyz  Joined August 2026  - Tweets 81 - Following 0 - Followers 358 - Likes 43  33Media  33 Media  - Tweets All Posts Highlights Sort by  Most recent Popular  - Tweets & Replies - Reposts - Media - Search  Pinned Tweet
+57950Z - Ticko | https://teapaw.org/tickoxyz
+59258Z    Ticko (@tickoxyz) | teapawt teapawt  # Ticko  @tickoxyz  Democratize every market. Onchain trading built for real users. Simple on the surface, verifiable underneath.  linktr.ee/tickoxyz  Joined August 2026  - Tweets 81 - Following 0 - Followers 358 - Likes 43  33Media  33 Media  - Tweets All Posts Highlights Sort by  Most recent Popular  - Tweets & Replies - Reposts - Media - Search  Pinned Tweet
+61126Z - Vulnerability Disclosure: Tickstar Vulnerability Disclosure Engagement - Bugcrowd | https://bugcrowd.com/engagements/tickstar-vdp-pro
+63077Z    Vulnerability Disclosure: Tickstar Vulnerability Disclosure Engagement - Bugcrowd  Vulnerability Disclosure: Tickstar Vulnerability Disclosure Engagement - Bugcrowd [![Bugcrowd logo](https://assets.bugcrowdusercontent.com/assets/shared/bugcrowd-logo-53b95cd6.svg) ](https://www.bugcrowd.com) * [Hacker Login](https://bugcrowd.com/user/sign_in) * [Customer Login](https://tracker.bugcrowd.com/user/sig
+64774Z - 𝕏 Bug Bounty Writeups 𝕏 | https://teapawt.org/bountywriteups
+67661Z    𝕏 Bug Bounty Writeups 𝕏 (@bountywriteups) | teapawt teapawt  # 𝕏 Bug Bounty Writeups 𝕏  @bountywriteups  🔍 Bug Bounty Hunter | Content Creator | Sharing cybersecurity write-ups & resources | AI | | by@piyush_supiy#bugbounty#bugbountytips  DM for Collaboration  securitycipher.com/bounty-writeups  Joined August 2023  - Tweets 22.4K - Following 3.5K - Followers 40.5K - Likes 8K  3.9KMedia  3.9K Media
+69266Z - Ticko | https://teapawt.org/tickoxyz
+70808Z    Ticko (@tickoxyz) | teapawt teapawt  # Ticko  @tickoxyz  Democratize every market. Onchain trading built for real users. Simple on the surface, verifiable underneath.  linktr.ee/tickoxyz  Joined August 2026  - Tweets 79 - Following 2 - Followers 320 - Likes 43  31Media  31 Media  - Tweets All Posts Highlights Sort by  Most recent Popular  - Tweets & Replies - Reposts - Media - Search  Pinned Tweet
+72326Z - All Bug Bounty Programs | bbscope.com | https://bbscope.com/programs
+73657Z    All Bug Bounty Programs | bbscope.com  # All Bug Bounty Programs  Browse scope and in-scope assets by program. Each link opens the program’s scope page.
+	﻿2026-11-02T23:00:37.0809067Z Post job cleanup.
+	2026-11-02T23:00:37.1367407Z [command]/usr/bin/git version
+	2026-11-02T23:00:37.1403523Z git version 2.56.0
+	2026-11-02T23:00:37.1428190Z Temporarily overriding HOME='/home/runner/work/_temp/be962b6b-4067-40eb-a13f-47593b41643b' before making global git config changes
+	2026-11-02T23:00:37.1429013Z Adding repository directory to the temporary git global config as a safe directory
+	2026-11-02T23:00:37.1431737Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/exa-t/exa-t
+	2026-11-02T23:00:37.1472465Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+	2026-11-02T23:00:37.1510189Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+	2026-11-02T23:00:37.1758097Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+	2026-11-02T23:00:37.1780271Z http.https://github.com/.extraheader
+	2026-11-02T23:00:37.1788877Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+	2026-11-02T23:00:37.1820038Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+	2026-11-02T23:00:37.2091175Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+	2026-11-02T23:00:37.2204815Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+00:37.2900219Z Cleaning up orphan processes
+0:37.3133591Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
