@@ -1,0 +1,13 @@
+import os, json, urllib.request
+k = os.environ["EXAK"]
+def req(p, body):
+    r = urllib.request.Request("https://api.exa.ai"+p, data=json.dumps(body).encode(),
+        headers={"content-type":"application/json","x-api-key":k})
+    try:
+        with urllib.request.urlopen(r, timeout=40) as x:
+            return x.status, x.read().decode()[:600]
+    except Exception as e:
+        return getattr(e, "code", 0), str(e)[:200]
+for p in ["/models", "/v1/models"]:
+    print(p, req(p, {}))
+print("SEARCH", req("/search", {"query":"bitcoin covenants","numResults":1}))
