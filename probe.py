@@ -6,10 +6,25 @@ def post(p, body):
     try:
         with urllib.request.urlopen(r, timeout=120) as x: return x.status, x.read().decode()
     except Exception as e:
-        try: return getattr(e,"code",0), e.read().decode()[:400]
+        try: return getattr(e,"code",0), e.read().decode()[:300]
         except: return getattr(e,"code",0), str(e)[:200]
 
-print("=== cari endpoint deep research pengganti ===")
-for p in ["/deep-search", "/search/deep", "/agent", "/v1/deep-search"]:
-    s,b = post(p, {"query":"test"})
-    print(f"  {p:<20} -> {s}  {b[:100] if s!=200 else 'OK'}")
+# 1. ambil halaman bug bounty langsung
+s,b = post("/contents", {"urls":["https://docs.ticko.xyz/resources/ticko-bug-bounty"],"text":{"maxCharacters":15000}})
+print("=== CONTENTS status:", s)
+if s==200:
+    d=json.loads(b)
+    for r in d.get("results",[]):
+        print(r.get("title"))
+        print((r.get("text") or "")[:4000])
+else:
+    print(b[:300])
+
+# 2. deep search konteks Ticko
+s2,b2 = post("/search", {"query":"Ticko xyz bug bounty scope program","type":"deep","numResults":6,"contents":{"text":{"maxCharacters":2500}}})
+print("\n=== DEEP SEARCH status:", s2)
+if s2==200:
+    d=json.loads(b2)
+    for r in d.get("results",[]):
+        print("-",r.get("title"),"|",r.get("url"))
+        print("  ",(r.get("text") or "")[:400].replace("\n"," "))
